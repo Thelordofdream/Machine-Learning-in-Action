@@ -11,13 +11,13 @@ myDat,labels=trees.createDataSet()
 trees.calcShannonEnt(myDat)
 myDat[0][-1]='maybe'
 trees.calcShannonEnt(myDat)
-trees.splitDataSet(myDat,0,1)
-trees.splitDataSet(myDat,0,0)
+trees.splitDataSet(myDat, 0, 1)
+trees.splitDataSet(myDat, 0, 0)
 trees.chooseBestFeatureToSplit(myDat)
 myTree = trees.createTree(myDat,labels)
-trees.classify(myTree,labels,[1,0])
-trees.classify(myTree,labels,[1,1])
-trees.storeTree(myTree,'classifierStorage.txt')
+trees.classify(myTree, labels, [1, 0])
+trees.classify(myTree, labels, [1, 1])
+trees.storeTree(myTree, 'classifierStorage.txt')
 trees.grabTree('classifierStorage.txt')
 '''
 def calcShannonEnt(dataSet):
