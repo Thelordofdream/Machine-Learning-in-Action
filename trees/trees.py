@@ -4,7 +4,7 @@ import operator
 
 '''
 import os
-os.chdir("/Users/zhangmingjie/PycharmProjects/trees")
+os.chdir("/Users/zhangmingjie/Documents/Github/Machine-Learning-in-Action/trees")
 execfile("trees.py")
 import trees
 myDat,labels=trees.createDataSet()

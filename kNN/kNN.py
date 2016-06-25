@@ -6,7 +6,7 @@ from os import listdir
 
 '''
 import os
-os.chdir("/Users/zhangmingjie/PycharmProjects/kNN")
+os.chdir("/Users/zhangmingjie/Documents/Github/Machine-Learning-in-Action/kNN")
 execfile("kNN.py")
 import kNN
 group,labels=kNN.createDataSet()
