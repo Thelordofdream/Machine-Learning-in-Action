@@ -126,7 +126,7 @@ def handwritingClassTest():
 
 group, labels = createDataSet()
 classify0([18, 90], group, labels, 3)
-datingDataMat, datingLabels = file2matrix('datingTestSet.txt')
+datingDataMat, datingLabels = file2matrix('datingTestSet2.txt')
 fig = plt.figure()
 ax = fig.add_subplot(111)
 ax.scatter(datingDataMat[:, 0], datingDataMat[:, 1], 15.0 * array(datingLabels), 15.0 * array(datingLabels))
