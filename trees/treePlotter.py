@@ -2,14 +2,6 @@
 import matplotlib.pyplot as plt
 import trees
 
-'''
-import treePlotter
-myTree = treePlotter.retrieveTree(0)
-treePlotter.getNumLeafs(myTree)
-treePlotter.getTreeDepth(myTree)
-treePlotter.createPlot(myTree)
-'''
-
 
 decisionNode = dict(boxstyle="sawtooth", fc="0.8")
 leafNode = dict(boxstyle="round4", fc="0.8")
@@ -100,3 +92,10 @@ def lenses():
     lensesTree = trees.createTree(lenses, lensesLabels)
     createPlot(lensesTree)
     return
+
+
+myTree = retrieveTree(0)
+print getNumLeafs(myTree)
+print getTreeDepth(myTree)
+createPlot(myTree)
+#lenses()

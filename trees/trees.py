@@ -52,10 +52,10 @@ def chooseBestFeatureToSplit(dataSet):
             prob = len(subDataSet) / float(len(dataSet))
             newEntropy += prob * calcShannonEnt(subDataSet)
         infoGain = baseEntropy - newEntropy
-        if (infoGain > bestInfoGain):
+        if infoGain > bestInfoGain:
             bestInfoGain = infoGain
             bestFeature = i
-        print infoGain
+        # print infoGain
     return bestFeature
 
 
@@ -113,14 +113,15 @@ def grabTree(filename):
 
 
 myDat, labels = createDataSet()
-calcShannonEnt(myDat)
-myDat[0][-1] = 'maybe'
-calcShannonEnt(myDat)
-splitDataSet(myDat, 0, 1)
-splitDataSet(myDat, 0, 0)
-chooseBestFeatureToSplit(myDat)
-myTree = createTree(myDat, labels)
-classify(myTree, labels, [1, 0])
-classify(myTree, labels, [1, 1])
+# print calcShannonEnt(myDat)
+# myDat[0][-1] = 'maybe'
+# print calcShannonEnt(myDat)
+# print splitDataSet(myDat, 0, 1)
+# print splitDataSet(myDat, 0, 0)
+# print 'The best feature is ' + labels[chooseBestFeatureToSplit(myDat)]
+labels0 = labels[:]
+myTree = createTree(myDat, labels0)
+# classify(myTree, labels, [1, 0])
+# classify(myTree, labels, [1, 1])
 storeTree(myTree, 'classifierStorage.txt')
 grabTree('classifierStorage.txt')

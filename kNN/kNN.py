@@ -119,7 +119,7 @@ def handwritingClassTest():
         vectorUnderTest = img2vector('testDigits/%s' % fileNameStr)
         classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels, 3)
         print "the classsifier came back with: %d, the real answer is: %d" % (classifierResult, classNumStr)
-        if (classifierResult != classNumStr): errorCount += 1.0
+        if classifierResult != classNumStr: errorCount += 1.0
     print "\nthe total number of errors is: %d" % errorCount
     print "\nthe total error rate is: %f" % (errorCount / float(mTest))
 
@@ -136,4 +136,4 @@ plt.show()
 normMat, ranges, minVals = autoNorm(datingDataMat)
 datingClassTest()
 classifyPerson()
-handwritingClassTest()
+# handwritingClassTest()
