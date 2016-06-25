@@ -16,7 +16,7 @@ trees.splitDataSet(myDat,0,0)
 trees.chooseBestFeatureToSplit(myDat)
 myTree = trees.createTree(myDat,labels)
 trees.classify(myTree,labels,[1,0])
-trees,classify(myTree,labels,[1,1])
+trees.classify(myTree,labels,[1,1])
 trees.storeTree(myTree,'classifierStorage.txt')
 trees.grabTree('classifierStorage.txt')
 '''
@@ -40,7 +40,7 @@ def createDataSet():
                [1, 0, 'no'],
                [0, 1, 'no'],
                [0, 1, 'no']]
-    labels = ['no surfacing','flippers']
+    labels = ['no surfacing', 'flippers']
     return dataSet,labels
 
 def splitDataSet(dataSet, axis, value):

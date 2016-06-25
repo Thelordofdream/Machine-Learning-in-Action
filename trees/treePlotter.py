@@ -9,6 +9,19 @@ treePlotter.getNumLeafs(myTree)
 treePlotter.getTreeDepth(myTree)
 treePlotter.createPlot(myTree)
 '''
+import trees
+myDat,labels=trees.createDataSet()
+trees.calcShannonEnt(myDat)
+myDat[0][-1]='maybe'
+trees.calcShannonEnt(myDat)
+trees.splitDataSet(myDat,0,1)
+trees.splitDataSet(myDat,0,0)
+trees.chooseBestFeatureToSplit(myDat)
+myTree = trees.createTree(myDat,labels)
+trees.classify(myTree,labels,[1,0])
+trees.classify(myTree,labels,[1,1])
+trees.storeTree(myTree,'classifierStorage.txt')
+trees.grabTree('classifierStorage.txt')
 
 decisionNode = dict(boxstyle="sawtooth", fc="0.8")
 leafNode = dict(boxstyle="round4", fc="0.8")
