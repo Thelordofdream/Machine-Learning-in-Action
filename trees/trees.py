@@ -2,25 +2,6 @@
 from math import log
 import operator
 
-'''
-import os
-os.chdir("/Users/zhangmingjie/Documents/Github/Machine-Learning-in-Action/trees")
-execfile("trees.py")
-import trees
-myDat,labels=trees.createDataSet()
-trees.calcShannonEnt(myDat)
-myDat[0][-1]='maybe'
-trees.calcShannonEnt(myDat)
-trees.splitDataSet(myDat, 0, 1)
-trees.splitDataSet(myDat, 0, 0)
-trees.chooseBestFeatureToSplit(myDat)
-myTree = trees.createTree(myDat,labels)
-trees.classify(myTree, labels, [1, 0])
-trees.classify(myTree, labels, [1, 1])
-trees.storeTree(myTree, 'classifierStorage.txt')
-trees.grabTree('classifierStorage.txt')
-'''
-
 
 def calcShannonEnt(dataSet):
     numEntries = len(dataSet)
@@ -129,3 +110,17 @@ def grabTree(filename):
     import pickle
     fr = open(filename)
     return pickle.load(fr)
+
+
+myDat, labels = createDataSet()
+calcShannonEnt(myDat)
+myDat[0][-1] = 'maybe'
+calcShannonEnt(myDat)
+splitDataSet(myDat, 0, 1)
+splitDataSet(myDat, 0, 0)
+chooseBestFeatureToSplit(myDat)
+myTree = createTree(myDat, labels)
+classify(myTree, labels, [1, 0])
+classify(myTree, labels, [1, 1])
+storeTree(myTree, 'classifierStorage.txt')
+grabTree('classifierStorage.txt')

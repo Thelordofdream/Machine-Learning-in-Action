@@ -4,29 +4,6 @@ import matplotlib
 import matplotlib.pyplot as plt
 from os import listdir
 
-'''
-import os
-os.chdir("/Users/zhangmingjie/Documents/Github/Machine-Learning-in-Action/kNN")
-execfile("kNN.py")
-import kNN
-group,labels=kNN.createDataSet()
-kNN.classify0([18,90],group,labels,3)
-datingDataMat,datingLabels=kNN.file2matrix('datingTestSet.txt')
-import matplotlib
-import matplotlib.pyplot as plt
-fig = plt.figure()
-ax=fig.add_subplot(111)
-ax.scatter(datingDataMat[:,0],datingDataMat[:,1],15.0*array(datingLabels),15.0*array(datingLabels))
-plt.xlabel('Frequent Flier Miles Earned Per Year')
-plt.ylabel('Percentage of Time Spent Playing Video Games')
-plt.show()
-normMat,ranges,minVals=kNN.autoNorm(datingDataMat)
-kNN.datingClassTest()
-kNN.classifyPerson()
-kNN.handwritingClassTest()
-reload(kNN)
-'''
-
 
 def createDataSet():
     group = array([[3, 104], [2, 100], [1, 81], [101, 10], [99, 5], [98, 2]])
@@ -145,3 +122,18 @@ def handwritingClassTest():
         if (classifierResult != classNumStr): errorCount += 1.0
     print "\nthe total number of errors is: %d" % errorCount
     print "\nthe total error rate is: %f" % (errorCount / float(mTest))
+
+
+group, labels = createDataSet()
+classify0([18, 90], group, labels, 3)
+datingDataMat, datingLabels = file2matrix('datingTestSet.txt')
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.scatter(datingDataMat[:, 0], datingDataMat[:, 1], 15.0 * array(datingLabels), 15.0 * array(datingLabels))
+plt.xlabel('Frequent Flier Miles Earned Per Year')
+plt.ylabel('Percentage of Time Spent Playing Video Games')
+plt.show()
+normMat, ranges, minVals = autoNorm(datingDataMat)
+datingClassTest()
+classifyPerson()
+handwritingClassTest()
