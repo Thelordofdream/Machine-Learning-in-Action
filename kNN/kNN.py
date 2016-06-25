@@ -48,6 +48,7 @@ def classify0(inX,dataSet,labels,k):
     sortedClassCount = sorted(classCount.iteritems(),key=operator.itemgetter(1),reverse=True)
     return sortedClassCount[0][0]
 
+
 def file2matrix(filename):
     fr = open(filename)
     arrayOLines = fr.readlines()
@@ -71,6 +72,7 @@ def file2matrix(filename):
     #plt.ylabel('Percentage of Time Spent Playing Video Games')
     #plt.show()
     return returnMat,classLabelsVector
+
 
 def autoNorm(dataSet):
     minVals = dataSet.min(0)
