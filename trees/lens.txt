@@ -1,0 +1,24 @@
+1  1  1  1  no lenses
+1  1  1  2  soft
+1  1  2  1  no lenses
+1  1  2  2  hard
+1  2  1  1  no lenses
+1  2  1  2  soft
+1  2  2  1  no lenses
+1  2  2  2  hard
+2  1  1  1  no lenses
+2  1  1  2  soft
+2  1  2  1  no lenses
+2  1  2  2  hard
+2  2  1  1  no lenses
+2  2  1  2  soft
+2  2  2  1  no lenses
+2  2  2  2  no lenses
+3  1  1  1  no lenses
+3  1  1  2  no lenses
+3  1  2  1  no lenses
+3  1  2  2  hard
+3  2  1  1  no lenses
+3  2  1  2  soft
+3  2  2  1  no lenses
+3  2  2  2  no lenses
