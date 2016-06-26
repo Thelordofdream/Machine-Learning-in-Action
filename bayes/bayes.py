@@ -152,7 +152,14 @@ def localWords(feed1, feed0):
     vocabList = createVocabList(docList)
     top30Words = calcMostFreq(vocabList, fullText)
     for pairW in top30Words:
-        if pairW[0] in vocabList: vocabList.remove(pairW[0])
+        if pairW[0] in vocabList: vocabList.remove(pairW[0])  # delete most frequent 30 words
+    fr = open('stopwords.txt')
+    stopwords = [inst.strip() for inst in fr.readlines()]
+    print len(vocabList)
+    for eachword in stopwords:
+        if eachword in vocabList:
+            vocabList.remove(eachword)  # delete stopwords
+    print len(vocabList)
     trainingSet = range(2 * minLen)
     testSet = []
     for i in range(20):
@@ -180,8 +187,8 @@ def getTopWords(ny, sf):
     topNY = []
     topSF = []
     for i in range(len(p0V)):
-        if p0V[i] > -6.0: topSF.append((vocabList[i], p0V[i]))
-        if p1V[i] > -6.0: topNY.append((vocabList[i], p1V[i]))
+        if p0V[i] > -5.0: topSF.append((vocabList[i], p0V[i]))
+        if p1V[i] > -5.0: topNY.append((vocabList[i], p1V[i]))
     sortedSF = sorted(topSF, key=lambda pair: pair[1], reverse=True)
     print "SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**"
     for item in sortedSF:
