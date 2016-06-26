@@ -5,6 +5,7 @@ Codes written by myself for Machine Learning in Action
 * [k-近邻算法][]([K Nearest Neighbor])
 * [决策树][]([Decision Tree])
 * [朴素贝叶斯][]([Naive Bayesian])
+* [Logistic回归][]([Logistic Regression])
 
 
 
@@ -13,4 +14,6 @@ Codes written by myself for Machine Learning in Action
 [决策树]:https://github.com/Thelordofdream/Machine-Learning-in-Action/tree/master/trees  
 [Decision Tree]:https://zh.wikipedia.org/wiki/决策树  
 [朴素贝叶斯]:https://github.com/Thelordofdream/Machine-Learning-in-Action/tree/master/bayes  
-[Naive Bayesian]:https://zh.wikipedia.org/wiki/朴素贝叶斯分类器
+[Naive Bayesian]:https://zh.wikipedia.org/wiki/朴素贝叶斯分类器  
+[Logistic回归]:https://github.com/Thelordofdream/Machine-Learning-in-Action/tree/master/logRegres
+[Logistic Regression]:https://zh.wikipedia.org/wiki/邏輯迴歸
