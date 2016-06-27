@@ -29,7 +29,7 @@ def gradAscent(dataMatIn, classLabels):
     for k in range(maxCycles):
         h = sigmoid(dataMatrix * weights)
         error = (labelMat - h)
-        weights = weights + alpha * dataMatrix.transpose() * error
+        weights += alpha * dataMatrix.transpose() * error
     return weights
 
 
@@ -62,4 +62,4 @@ def plotBestFit(weights):
 
 dataMatIn, classLabels = loadDataSet()
 weights = gradAscent(dataMatIn, classLabels)
-plotBestFit(weights.getA())
+plotBestFit(weights)
