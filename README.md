@@ -6,6 +6,7 @@ Codes written by myself for Machine Learning in Action
 * [决策树][]([Decision Tree])
 * [朴素贝叶斯][]([Naive Bayesian])
 * [Logistic回归][]([Logistic Regression])
+* [支持向量机][]([Support Vector Machine])
 
 
 
@@ -17,3 +18,5 @@ Codes written by myself for Machine Learning in Action
 [Naive Bayesian]:https://zh.wikipedia.org/wiki/朴素贝叶斯分类器  
 [Logistic回归]:https://github.com/Thelordofdream/Machine-Learning-in-Action/tree/master/logRegres
 [Logistic Regression]:https://zh.wikipedia.org/wiki/邏輯迴歸
+[支持向量机]:https://github.com/Thelordofdream/Machine-Learning-in-Action/tree/master/svmMLiA  
+[Support Vector Machine]:https://zh.wikipedia.org/wiki/支持向量机
