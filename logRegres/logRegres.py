@@ -1,8 +1,7 @@
 from numpy import *
 import matplotlib.pyplot as plt
 from numpy.ma import exp
-import numpy
-import six
+
 
 def loadDataSet():
     dataMat = []
@@ -16,7 +15,7 @@ def loadDataSet():
 
 
 def sigmoid(inX):
-    return 1.0/(1 + exp(-inX))
+    return 1.0 / (1 + exp(-inX))
 
 
 def gradAscent(dataMatIn, classLabels):
@@ -50,7 +49,7 @@ def plotBestFit(weights):
             ycord2.append(dataArr[i, 2])
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.scatter(xcord1, ycord1, s=30, c='red',marker='s')
+    ax.scatter(xcord1, ycord1, s=30, c='red', marker='s')
     ax.scatter(xcord2, ycord2, s=30, c='green')
     x = arange(-3.0, 3.0, 0.1)
     y = (-weights[0] - weights[1] * x) / weights[2]
@@ -60,6 +59,34 @@ def plotBestFit(weights):
     plt.show()
 
 
+def stocGradAscent0(dataMatrix, classLabels):
+    m, n = shape(dataMatrix)
+    alpha = 0.01
+    weights = ones(n)
+    for i in range(m):
+        h = sigmoid(sum(dataMatrix[i] * weights))
+        error = classLabels[i] - h
+        weights += alpha * error * dataMatrix[i]
+    return weights
+
+
+def stocGradAscent1(dataMatrix, classLabels, numIter=150):
+    m, n = shape(dataMatrix)
+    weights = ones(n)
+    for j in range(numIter):
+        dataIndex = range(m)
+        for i in range(m):
+            alpha = 4 / (1.0 + j + i) + 0.01
+            randIndex = int(random.uniform(0, len(dataIndex)))
+            h = sigmoid(sum(dataMatrix[dataIndex[randIndex]] * weights))
+            error = classLabels[dataIndex[randIndex]] - h
+            weights += alpha * error * dataMatrix[dataIndex[randIndex]]
+            del (dataIndex[randIndex])
+    return weights
+
+
 dataMatIn, classLabels = loadDataSet()
-weights = gradAscent(dataMatIn, classLabels)
+# weights = gradAscent(dataMatIn, classLabels)
+# weights = stocGradAscent0(array(dataMatIn), classLabels)
+weights = stocGradAscent1(array(dataMatIn), classLabels)
 plotBestFit(weights)
