@@ -73,7 +73,6 @@ def classifyNB(vec2Classify, p0Vec, p1Vec, pClass1):
 def testingNB():
     listOPosts, listClasses = loadDataSet()
     myVocabList = createVocabList(listOPosts)
-    print myVocabList
     trainMat = []
     for postinDoc in listOPosts:
         trainMat.append(setOfWords2Vec(myVocabList, postinDoc))
@@ -155,11 +154,9 @@ def localWords(feed1, feed0):
         if pairW[0] in vocabList: vocabList.remove(pairW[0])  # delete most frequent 30 words
     fr = open('stopwords.txt')
     stopwords = [inst.strip() for inst in fr.readlines()]
-    print len(vocabList)
     for eachword in stopwords:
         if eachword in vocabList:
             vocabList.remove(eachword)  # delete stopwords
-    print len(vocabList)
     trainingSet = range(2 * minLen)
     testSet = []
     for i in range(20):
