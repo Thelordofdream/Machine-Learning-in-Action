@@ -132,6 +132,6 @@ def multiTest():
 dataMatIn, classLabels = loadDataSet()
 # weights = gradAscent(dataMatIn, classLabels)
 # weights = stocGradAscent0(array(dataMatIn), classLabels)
-# weights = stocGradAscent1(array(dataMatIn), classLabels, 20)
-# plotBestFit(weights)
+weights = stocGradAscent1(array(dataMatIn), classLabels, 20)
+plotBestFit(weights)
 multiTest()
