@@ -230,12 +230,13 @@ def plotBestFit(weights, b):
     plt.ylabel('X2')
     plt.show()
 
+
 dataArr, labelArr = loadDataSet('testSet.txt')
 # b, alphas = smoSimple(dataArr, labelArr, 0.6, 0.001, 40)
 b, alphas = smoP(dataArr, labelArr, 0.6, 0.001, 40)
 print b
 print alphas[alphas > 0]
-m, n = shape(alphas)
+# m, n = shape(alphas)
 # for i in range(100):
 #    if alphas[i] > 0.0:
 #        print dataArr[i], labelArr[i]
