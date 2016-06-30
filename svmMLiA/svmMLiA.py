@@ -236,10 +236,27 @@ dataArr, labelArr = loadDataSet('testSet.txt')
 b, alphas = smoP(dataArr, labelArr, 0.6, 0.001, 40)
 print b
 print alphas[alphas > 0]
-# m, n = shape(alphas)
-# for i in range(100):
+m, n = shape(alphas)
+# for i in range(m):
 #    if alphas[i] > 0.0:
 #        print dataArr[i], labelArr[i]
 ws = calcWs(alphas, dataArr, labelArr)
 print ws
 plotBestFit(ws, b)
+datMat = mat(dataArr)
+errorCount = 0
+for i in range(m):
+    label = 0
+    value = datMat[i] * mat(ws) + b
+    if value < 0:
+        label = -1
+    elif value > 0:
+        label = 1
+    else:
+        label = 0
+    if label != labelArr[i]:
+        errorCount += 1
+        print "value = %f label = %d real = %d error!" % (value, label, labelArr[i])
+    else:
+        print "value = %f label = %d real = %d right!" % (value, label, labelArr[i])
+print "errorRate: %f" % (float(errorCount)/m)
