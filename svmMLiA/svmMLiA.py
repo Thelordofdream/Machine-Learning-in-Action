@@ -259,4 +259,4 @@ for i in range(m):
         print "value = %f label = %d real = %d error!" % (value, label, labelArr[i])
     else:
         print "value = %f label = %d real = %d right!" % (value, label, labelArr[i])
-print "errorRate: %f" % (float(errorCount)/m)
+print "errorRate: %f" % (float(errorCount) / m)
