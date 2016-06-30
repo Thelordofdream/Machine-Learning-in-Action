@@ -58,14 +58,14 @@ def smoSimple(dataMatIn, classLabels, C, toler, maxIter):
                 if eta >= 0:
                     print "eta>=0"
                     continue
-                alphas[j] -= labelMat[j] * (Ei - Ej)/eta
+                alphas[j] -= labelMat[j] * (Ei - Ej) / eta
                 alphas[j] = clipAlpha(alphas[j], H, L)
-                if (abs(alphas[j] - alphaJold) < 0.00001):
+                if abs(alphas[j] - alphaJold) < 0.00001:
                     print "j not moving enough"
                     continue
                 alphas[i] += labelMat[j] * labelMat[i] * (alphaJold -alphas[j])
                 b1 = b - Ei - labelMat[i] * (alphas[i] - alphaIold) * dataMatrix[i, :] * dataMatrix[i, :].T - labelMat[j] * (alphas[j] - alphaJold) * dataMatrix[i, :] * dataMatrix[j, :].T
-                b2 = b - Ej - labelMat[i] * (alphas[i] - alphaIold) * dataMatrix[j, :] * dataMatrix[i, :].T - labelMat[j] * (alphas[j] - alphaJold) * dataMatrix[j, :] * dataMatrix[j, :].T
+                b2 = b - Ej - labelMat[i] * (alphas[i] - alphaIold) * dataMatrix[i, :] * dataMatrix[j, :].T - labelMat[j] * (alphas[j] - alphaJold) * dataMatrix[j, :] * dataMatrix[j, :].T
                 if (0 < alphas[i]) and (C > alphas[i]):
                     b = b1
                 elif (0 < alphas[j]) and (C > alphas[j]):
@@ -85,4 +85,8 @@ def smoSimple(dataMatIn, classLabels, C, toler, maxIter):
 dataArr, labelArr = loadDataSet('testSet.txt')
 b, alphas = smoSimple(dataArr, labelArr, 0.6, 0.001, 40)
 print b
-print alphas[alphas>0]
+print alphas[alphas > 0]
+m, n = shape(alphas)
+for i in range(100):
+    if alphas[i] > 0.0:
+        print dataArr[i],labelArr[i]
