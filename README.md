@@ -2,11 +2,11 @@
 Codes written by myself for Machine Learning in Action  
 
 ##分类 Classification
-* [k-近邻算法][]([K Nearest Neighbor])
-* [决策树][]([Decision Tree])
-* [朴素贝叶斯][]([Naive Bayesian])
-* [Logistic回归][]([Logistic Regression])
-* [支持向量机][]([Support Vector Machine])
+* [k-近邻算法][] ([K Nearest Neighbor])
+* [决策树][] ([Decision Tree])
+* [朴素贝叶斯][] ([Naive Bayesian])
+* [Logistic回归][] ([Logistic Regression])
+* [支持向量机][] ([Support Vector Machine])
 
 
 
