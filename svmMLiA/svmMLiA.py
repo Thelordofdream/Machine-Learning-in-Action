@@ -1,4 +1,5 @@
 from numpy import *
+import matplotlib.pyplot as plt
 
 
 def loadDataSet(fileName):
@@ -193,12 +194,51 @@ def smoP(dataMatIn, classLabels, C, toler, maxIter, kTup=('lin', 0)):
     return oS.b, oS.alphas
 
 
+def calcWs(alphas, dataArr, classLabels):
+    X = mat(dataArr)
+    labelMat = mat(classLabels).transpose()
+    m, n = shape(X)
+    w = zeros((n,1))
+    for i in range(m):
+        w += multiply(alphas[i] * labelMat[i], X[i, :].T)
+    return w
+
+
+def plotBestFit(weights, b):
+    dataMat, labelMat = loadDataSet('testSet.txt')
+    dataArr = array(dataMat)
+    n = shape(dataArr)[0]
+    xcord1 = []
+    ycord1 = []
+    xcord2 = []
+    ycord2 = []
+    for i in range(n):
+        if int(labelMat[i]) == 1:
+            xcord1.append(dataArr[i, 0])
+            ycord1.append(dataArr[i, 1])
+        else:
+            xcord2.append(dataArr[i, 0])
+            ycord2.append(dataArr[i, 1])
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.scatter(xcord1, ycord1, s=30, c='red', marker='s')
+    ax.scatter(xcord2, ycord2, s=30, c='green')
+    x = arange(3.0, 6.0, 0.1)
+    y = (-b[0,0] - weights[0] * x) / weights[1]
+    ax.plot(x, y)
+    plt.xlabel('X1')
+    plt.ylabel('X2')
+    plt.show()
+
 dataArr, labelArr = loadDataSet('testSet.txt')
-#b, alphas = smoSimple(dataArr, labelArr, 0.6, 0.001, 40)
+# b, alphas = smoSimple(dataArr, labelArr, 0.6, 0.001, 40)
 b, alphas = smoP(dataArr, labelArr, 0.6, 0.001, 40)
 print b
 print alphas[alphas > 0]
 m, n = shape(alphas)
-for i in range(100):
-    if alphas[i] > 0.0:
-        print dataArr[i], labelArr[i]
+# for i in range(100):
+#    if alphas[i] > 0.0:
+#        print dataArr[i], labelArr[i]
+ws = calcWs(alphas, dataArr, labelArr)
+print ws
+plotBestFit(ws, b)
